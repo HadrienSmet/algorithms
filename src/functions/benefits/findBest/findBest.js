@@ -33,6 +33,7 @@ export const findBestBenefits = (benefArr) => {
                 currentBuy = benefArr[i];
             }
         }
+
         if (i === benefArr.length - 1) {
             if (currentSell !== undefined) {
                 currentBenefits = currentSell - currentBuy;
@@ -40,6 +41,7 @@ export const findBestBenefits = (benefArr) => {
             }
         }
     }
+
     const answer =
         potentialsBenefits[0] === undefined
             ? -1
