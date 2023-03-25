@@ -46,14 +46,8 @@ export const findClosestEnemy = (mapArray) => {
     }
 
     for (let i = 0; i < enemiesPositions.length; i++) {
-        const diffX =
-            position.x <= enemiesPositions[i].x
-                ? enemiesPositions[i].x - position.x
-                : position.x - enemiesPositions[i].x;
-        const diffY =
-            position.y <= enemiesPositions[i].y
-                ? enemiesPositions[i].y - position.y
-                : position.y - enemiesPositions[i].y;
+        const diffX = Math.abs(position.x - enemiesPositions[i].x);
+        const diffY = Math.abs(position.y - enemiesPositions[i].y);
         const totalDiff = diffX + diffY;
         enemiesDistances.push(totalDiff);
     }
