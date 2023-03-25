@@ -8,12 +8,25 @@ export const findClosestEnemy = (mapArray) => {
         y: -1,
     };
 
+    if (mapArray[0] === undefined) {
+        return "No data";
+    }
+
     for (let i = 0; i < mapArray.length; i++) {
         const splittedElement = mapArray[i].split("");
         const isEnemy = splittedElement.includes("2");
         const positionX = splittedElement.findIndex(
             (element) => element === "1"
         );
+
+        const normalyEmptyArray = splittedElement
+            .filter((element) => element !== "0")
+            .filter((element) => element !== "1")
+            .filter((element) => element !== "2");
+
+        if (normalyEmptyArray[0] !== undefined) {
+            return "The data contains an element that is not '0', '1' or '2' of type string";
+        }
 
         if (isEnemy === true) {
             for (let j = 0; j < splittedElement.length; j++) {
@@ -45,13 +58,26 @@ export const findClosestEnemy = (mapArray) => {
         enemiesDistances.push(totalDiff);
     }
 
+    if (enemiesDistances[0] === undefined) {
+        if (position.x === -1) {
+            return "Dude I think you got lost... There isn't anything here";
+        } else {
+            return "Zone clear!";
+        }
+    }
+
     const orderedArray = enemiesDistances.sort((a, b) => a - b);
     const orderedArrayLessAnswer = orderedArray.splice(1, orderedArray.length);
     const areTwoEnemies = orderedArrayLessAnswer.findIndex(
         (element) => element === orderedArray[0]
     );
 
-    const answer = areTwoEnemies === -1 ? "it's a trap!" : orderedArray[0];
+    if (position.x === -1) {
+        return "There might be some enemies but there isn't any ally";
+    }
+
+    const answer =
+        areTwoEnemies !== -1 ? "Mayday, Mayday! It's a trap!" : orderedArray[0];
 
     return answer;
 };
