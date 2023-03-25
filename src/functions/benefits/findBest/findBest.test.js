@@ -16,3 +16,9 @@ test("no value", () => {
     const benefArr = [];
     expect(findBestBenefits(benefArr)).toEqual(-1);
 });
+test("wrong data", () => {
+    const benefArr = [10, 6, 3, 2, "5", 3];
+    expect(findBestBenefits(benefArr)).toEqual(
+        "Data does not contain only numbers"
+    );
+});

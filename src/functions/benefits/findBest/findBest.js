@@ -5,7 +5,14 @@ export const findBestBenefits = (benefArr) => {
     let currentSell = undefined;
     let currentBenefits;
 
-    for (let i = 0; i <= benefArr.length; i++) {
+    for (let i = 0; i <= benefArr.length - 1; i++) {
+        if (benefArr[0] === undefined) {
+            return -1;
+        }
+        if (typeof benefArr[i] !== "number") {
+            return "Data does not contain only numbers";
+        }
+
         if (currentBuy === undefined) {
             currentBuy = benefArr[i];
         } else {
@@ -26,7 +33,7 @@ export const findBestBenefits = (benefArr) => {
                 currentBuy = benefArr[i];
             }
         }
-        if (i === benefArr.length) {
+        if (i === benefArr.length - 1) {
             if (currentSell !== undefined) {
                 currentBenefits = currentSell - currentBuy;
                 potentialsBenefits.push(currentBenefits);
