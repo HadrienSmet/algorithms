@@ -27,9 +27,15 @@ export const findBestBenefits = (benefArr) => {
             }
         }
         if (i === benefArr.length) {
-            currentBenefits = currentSell - currentBuy;
-            potentialsBenefits.push(currentBenefits);
+            if (currentSell !== undefined) {
+                currentBenefits = currentSell - currentBuy;
+                potentialsBenefits.push(currentBenefits);
+            }
         }
     }
-    console.log(potentialsBenefits.sort((a, b) => b - a));
+    const answer =
+        potentialsBenefits[0] === undefined
+            ? -1
+            : potentialsBenefits.sort((a, b) => b - a)[0];
+    return answer;
 };

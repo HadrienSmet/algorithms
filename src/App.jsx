@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import { findBestBenefits } from "./functions/benefits/findBest";
+import { findBestBenefits } from "./functions/benefits/findBest/findBest";
 
 function App() {
-    const benefitsArray = [10, 12, 18, 6, 7, 9, 13, 15];
+    // const benefitsArray = [10, 12, 18, 6, 7, 9, 13, 15];
+    const benefitslessArray = [10, 10, 10, 10, 10, 10, 10, 10, 10];
 
     useEffect(() => {
         console.log("hello world");
-        findBestBenefits(benefitsArray);
+        // findBestBenefits(benefitsArray);
+        findBestBenefits(benefitslessArray);
     }, []);
 
     return (
