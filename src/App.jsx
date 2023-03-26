@@ -8,24 +8,24 @@ function App() {
     const benefitslessArray = [10, 10, 10, 10, 10, 10, 10, 10, 10];
     const example = ["0030", "0000", "0000", "0000"];
     const current = {
-        x: 20,
-        y: 20,
+        x: 10,
+        y: -5,
     };
     const enemiesPos = [
         {
-            id: 0,
-            x: 5,
+            id: "Jhon",
+            x: -3,
             y: 1,
         },
         {
-            id: 1,
-            x: 45,
-            y: 60,
+            id: "Mike",
+            x: 9,
+            y: -6,
         },
         {
-            id: 2,
-            x: 50,
-            y: 40,
+            id: "Jake",
+            x: 0,
+            y: -4,
         },
     ];
 
