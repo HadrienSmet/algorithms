@@ -2,8 +2,8 @@
 //This is how to find the biggest area.
 
 export const findBiggestArea = (shapeArr) => {
-    let indexesWithinHeight = [];
-    let areas = [];
+    let areasData = [];
+    let maxAreas = [];
     if (!Array.isArray(shapeArr)) {
         return "The data is not properly set. This function accept only an array of number as parameter";
     }
@@ -26,11 +26,11 @@ export const findBiggestArea = (shapeArr) => {
                 area.indexes.push(j);
             }
         }
-        indexesWithinHeight.push(area);
+        areasData.push(area);
     }
 
-    for (let i = 0; i < indexesWithinHeight.length; i++) {
-        const currentElement = indexesWithinHeight[i];
+    for (let i = 0; i < areasData.length; i++) {
+        const currentElement = areasData[i];
         const currentIndexes = currentElement.indexes;
         let areasWithThatHeight = [];
         let currentArea = 0;
@@ -49,11 +49,11 @@ export const findBiggestArea = (shapeArr) => {
         const biggestAreaWithThatHeight = areasWithThatHeight.sort(
             (a, b) => b - a
         )[0];
-        areas.push(biggestAreaWithThatHeight);
+        maxAreas.push(biggestAreaWithThatHeight);
     }
 
-    const answer = areas.sort((a, b) => b - a)[0];
-    const areasWithoutAnswer = areas.slice(1, areas.length);
+    const answer = maxAreas.sort((a, b) => b - a)[0];
+    const areasWithoutAnswer = maxAreas.slice(1, maxAreas.length);
     if (areasWithoutAnswer.findIndex((area) => area === answer) !== -1) {
         return "We have more than one winner!";
     }
