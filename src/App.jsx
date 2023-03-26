@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { findBestBenefits } from "./functions/benefits/findBest/findBest";
 import { findClosestEnemy } from "./functions/enemies/closestOnMap/closestOnMap";
 import { findClosestOnGraph } from "./functions/enemies/closestOnGraph/closestOnGraph";
+import { findClosestToZero } from "./functions/degrees/closestToZero/closestToZero";
 
 function App() {
     // const benefitsArray = [10, 12, 18, 6, 7, 9, 13, 15];
@@ -11,26 +12,12 @@ function App() {
         x: 10,
         y: -5,
     };
-    const enemiesPos = [
-        {
-            id: "Jhon",
-            x: -3,
-            y: 1,
-        },
-        {
-            id: "Mike",
-            x: 9,
-            y: -6,
-        },
-        {
-            id: "Jake",
-            x: 0,
-            y: -4,
-        },
-    ];
+    const enemiesPos =
+        "Y en a un vers le Mordor et un autre en Russie, il aime pas les Ukrainiens";
+    const temperatureExample = [-9, 5, 24, 29, 8, -2, 7, 2];
 
     useEffect(() => {
-        findClosestOnGraph(current, enemiesPos);
+        findClosestToZero(temperatureExample);
     }, []);
 
     return (

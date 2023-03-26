@@ -154,7 +154,7 @@ test("closest enemy from graph: wrong users's position case", () => {
     );
 });
 
-test("closest enemy from graph:  wrong enemy's position case", () => {
+test("closest enemy from graph: wrong enemy's position case", () => {
     const current = {
         x: 5,
         y: 1,
@@ -228,6 +228,18 @@ test("closest enemy from graph: wrong enemy's data case", () => {
         "The data about an enemy is not properly set. (id: string | number; x: number; y:number;)"
     );
 });
+test("closest enemy from graph: wrong enemies's data case", () => {
+    const current = {
+        x: 5,
+        y: 1,
+    };
+    const enemiesPos =
+        "Y en a un vers le Mordor et un autre en Russie, il aime pas les Ukrainiens";
+    expect(findClosestOnGraph(current, enemiesPos)).toEqual(
+        "The data about the enemies are not properly set: (id: string | number; x: number; y:number;)[]"
+    );
+});
+
 test("closest enemy from graph: with negatives values case", () => {
     const current = {
         x: -25,

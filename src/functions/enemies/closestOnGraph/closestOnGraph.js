@@ -5,6 +5,9 @@ export const findClosestOnGraph = (currPos, enemiesArr) => {
     if (typeof currPos.x !== "number" || typeof currPos.y !== "number") {
         return "The data about the user's position is not properly set. (x: number; y:number;)";
     }
+    if (!Array.isArray(enemiesArr)) {
+        return "The data about the enemies are not properly set: (id: string | number; x: number; y:number;)[]";
+    }
 
     for (let i = 0; i < enemiesArr.length; i++) {
         if (
