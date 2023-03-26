@@ -1,13 +1,20 @@
 // You get an array of numbers. Those numbers represents the height of a rectangle wich has a width of 1.
 //This is how to find the biggest area.
 
-const shapesExample = [3, 4, 1, 9, 8, 6, 7];
-
 export const findBiggestArea = (shapeArr) => {
     let indexesWithinHeight = [];
     let areas = [];
+    if (!Array.isArray(shapeArr)) {
+        return "The data is not properly set. This function accept only an array of number as parameter";
+    }
 
     for (let i = 0; i < shapeArr.length; i++) {
+        if (typeof shapeArr[i] !== "number") {
+            return "Each height must be given with the number type";
+        }
+        if (shapeArr[i] < 0) {
+            return "Each height must be a positive number";
+        }
         let area = {
             height: shapeArr[i],
             indexes: [],
@@ -57,6 +64,10 @@ export const findBiggestArea = (shapeArr) => {
     }
 
     const answer = areas.sort((a, b) => b - a)[0];
+    const areasWithoutAnswer = areas.slice(1, areas.length);
+    if (areasWithoutAnswer.findIndex((area) => area === answer) !== -1) {
+        return "We have more than one winner!";
+    }
 
     return answer;
 };
