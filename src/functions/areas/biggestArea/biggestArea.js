@@ -15,10 +15,12 @@ export const findBiggestArea = (shapeArr) => {
         if (shapeArr[i] < 0) {
             return "Each height must be a positive number";
         }
+
         let area = {
             height: shapeArr[i],
             indexes: [],
         };
+
         for (let j = 0; j < shapeArr.length; j++) {
             if (shapeArr[i] <= shapeArr[j]) {
                 area.indexes.push(j);
@@ -31,30 +33,17 @@ export const findBiggestArea = (shapeArr) => {
         const currentElement = indexesWithinHeight[i];
         const currentIndexes = currentElement.indexes;
         let areasWithThatHeight = [];
-        let currentArea = undefined;
+        let currentArea = 0;
 
         for (let j = 0; j < currentIndexes.length; j++) {
-            if (j === 0) {
-                currentArea = currentElement.height;
-                if (j === currentIndexes.length - 1) {
-                    areasWithThatHeight.push(currentArea);
-                    currentArea = 0;
-                }
-                if (currentIndexes[j + 1] - currentIndexes[j] !== 1) {
-                    areasWithThatHeight.push(currentArea);
-                    currentArea = 0;
-                }
-            } else {
-                currentArea += currentElement.height;
-                if (j === currentIndexes.length - 1) {
-                    areasWithThatHeight.push(currentArea);
-                    currentArea = 0;
-                } else {
-                    if (currentIndexes[j + 1] - currentIndexes[j] !== 1) {
-                        areasWithThatHeight.push(currentArea);
-                        currentArea = 0;
-                    }
-                }
+            currentArea += currentElement.height;
+            if (j === currentIndexes.length - 1) {
+                areasWithThatHeight.push(currentArea);
+                currentArea = 0;
+            }
+            if (currentIndexes[j + 1] - currentIndexes[j] !== 1) {
+                areasWithThatHeight.push(currentArea);
+                currentArea = 0;
             }
         }
         const biggestAreaWithThatHeight = areasWithThatHeight.sort(
