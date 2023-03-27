@@ -4,6 +4,7 @@ import { findClosestEnemy } from "./functions/enemies/closestOnMap/closestOnMap"
 import { findClosestOnGraph } from "./functions/enemies/closestOnGraph/closestOnGraph";
 import { findClosestToZero } from "./functions/degrees/closestToZero/closestToZero";
 import { findBiggestArea } from "./functions/areas/biggestArea/biggestArea";
+import { findTheHottest } from "./functions/degrees/farenheitCelsius/findTheHottest";
 
 function App() {
     // const benefitsArray = [10, 12, 18, 6, 7, 9, 13, 15];
@@ -17,9 +18,11 @@ function App() {
         "Y en a un vers le Mordor et un autre en Russie, il aime pas les Ukrainiens";
     const temperatureExample = [-9, 5, 24, 29, 8, -2, 7, 2];
     const shapesExample = [3, 4, 1, 9, 8, 6, 7];
+    const celsiusExample = 0;
+    const fahrenheitExample = 32;
 
     useEffect(() => {
-        findBiggestArea(shapesExample);
+        findTheHottest(celsiusExample, fahrenheitExample);
     }, []);
 
     return (
