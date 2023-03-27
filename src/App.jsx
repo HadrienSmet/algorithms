@@ -6,6 +6,7 @@ import { findClosestToZero } from "./functions/degrees/closestToZero/closestToZe
 import { findBiggestArea } from "./functions/areas/biggestArea/biggestArea";
 import { findTheHottest } from "./functions/degrees/farenheitCelsius/findTheHottest";
 import { isAnagram } from "./functions/strings/isAnagram/isAnagram";
+import { isPalindrom } from "./functions/strings/isPalindrom/isPalindrom";
 
 function App() {
     // const benefitsArray = [10, 12, 18, 6, 7, 9, 13, 15];
@@ -21,11 +22,11 @@ function App() {
     const shapesExample = [3, 4, 1, 9, 8, 6, 7];
     const celsiusExample = 0;
     const fahrenheitExample = 32;
-    const word1 = "chien";
-    const word2 = "niche";
+    const word1 = "trace";
+    const word2 = "ecart";
 
     useEffect(() => {
-        isAnagram(word1, word2);
+        isPalindrom(word1, word2);
     }, []);
 
     return (
