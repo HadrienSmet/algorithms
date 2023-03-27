@@ -18,13 +18,10 @@ export const findTheHottest = (celsius, fahrenheit) => {
         return "Are you from another dimension?";
     }
     if (convertToFahrenheit(celsius) < fahrenheit) {
-        console.log("Go to America, it's hotter");
         return "Go to America, it's hotter";
     } else if (convertToFahrenheit(celsius) > fahrenheit) {
-        console.log("Go to Europe, it's hotter");
         return "Go to Europe, it's hotter";
     } else {
-        console.log("Kiff kiff et bourrico");
         return "Kiff kiff et bourrico";
     }
 };
