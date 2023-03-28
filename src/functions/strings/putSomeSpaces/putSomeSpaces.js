@@ -4,6 +4,9 @@
 //Thanks to the second arguments put the spaces at the right space on the first argument
 
 export const putSomeSpaces = (firstTxt, scdTxt) => {
+    if (typeof firstTxt !== "string" || typeof scdTxt !== "string") {
+        return "Wrong data. Expecting a couple of strings as arguments";
+    }
     const splittedText = [...firstTxt];
     const wordsArray = scdTxt.split(" ");
     const wordsSplittedArray = [];
@@ -12,6 +15,7 @@ export const putSomeSpaces = (firstTxt, scdTxt) => {
         wordsSplittedArray.push(word.split(""));
     });
 
+    //Have to find the biggest words first otherwise they can be they can be divided if they contain a smaller word ('in' is in 'contain')
     const rightOrder = wordsSplittedArray.sort((a, b) => b.length - a.length);
     rightOrder.forEach((splittedWord) => {
         const currentWordLength = splittedWord.length;
