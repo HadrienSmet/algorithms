@@ -1,3 +1,5 @@
+//time complexity: O(n)
+//memory: O(n)
 export const twoSum = (nums, target) => {
     const map = new Map();
     if (nums.length === 0 || typeof target !== "number" || target < 0) {
