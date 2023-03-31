@@ -1,20 +1,11 @@
 import { useEffect } from "react";
-import { putSomeSpaces } from "./functions/strings/putSomeSpaces/putSomeSpaces";
-import { LinkedList } from "./utils/linkedList";
+import { twoSum } from "./functions/array/twoSum/twoSum";
 
 function App() {
-    const firstString = "Leroidespiratesceseramoi";
-    const scdString = "pirates sera le moi ce roi des";
-    const myLinkedList = new LinkedList();
-
-    myLinkedList.insertFirst(100);
-    myLinkedList.insertFirst(200);
-    myLinkedList.insertLast(1000);
-    myLinkedList.insertAt(600, 1);
-    myLinkedList.printListData();
+    const nums = [2, 3, 4];
 
     useEffect(() => {
-        putSomeSpaces(firstString, scdString);
+        twoSum(nums, 6);
     }, []);
 
     return (
