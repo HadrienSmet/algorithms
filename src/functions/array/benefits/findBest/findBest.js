@@ -5,12 +5,12 @@ export const findBestBenefits = (benefArr) => {
     let currentSell = undefined;
     let currentBenefits;
 
+    if (benefArr.length === 0) {
+        return null;
+    }
     for (let i = 0; i <= benefArr.length - 1; i++) {
-        if (benefArr[0] === undefined) {
-            return -1;
-        }
         if (typeof benefArr[i] !== "number") {
-            return "Data does not contain only numbers";
+            return null;
         }
 
         if (currentBuy === undefined) {

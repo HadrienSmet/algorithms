@@ -9,7 +9,7 @@ export const findClosestEnemy = (mapArray) => {
     };
 
     if (mapArray[0] === undefined) {
-        return "No data";
+        return null;
     }
 
     for (let i = 0; i < mapArray.length; i++) {
@@ -25,7 +25,7 @@ export const findClosestEnemy = (mapArray) => {
             .filter((element) => element !== "2");
 
         if (normalyEmptyArray[0] !== undefined) {
-            return "The data contains an element that is not '0', '1' or '2' of type string";
+            return null;
         }
 
         if (isEnemy === true) {

@@ -34,13 +34,23 @@ export class LinkedList {
 
         this.size++;
     }
+    // Get Node at index
+    getAt(index) {
+        if (index < 0 || index >= this.size) return null;
+
+        let current = this.head;
+        for (let i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current;
+    }
     // Insert Node at index
     insertAt(data, index) {
-        if (index > 0 && index > this.size) {
+        if (index < 0 || index > this.size) {
             return;
         }
         if (index === 0) {
-            this.insertFirst(data, this.head);
+            this.insertFirst(data);
             return;
         }
 
@@ -60,19 +70,6 @@ export class LinkedList {
         previous.next = node;
 
         this.size++;
-    }
-    // Get Node at index
-    getAt(index) {
-        let current = this.head;
-        let count = 0;
-
-        while (current) {
-            if (count == index) {
-            }
-            count++;
-            current = current.next;
-        }
-        return null;
     }
 
     // Remove Node at index
@@ -106,11 +103,21 @@ export class LinkedList {
     }
     // Print list data
     printListData() {
+        let output = "";
         let current = this.head;
 
         while (current) {
-            console.log(current.data);
+            output = `${output}${current.data} -> `;
             current = current.next;
         }
+        console.log(output);
     }
 }
+
+LinkedList.fromValues = function (...values) {
+    const ll = new LinkedList();
+    for (let i = values.length - 1; i >= 0; i--) {
+        ll.insertFirst(values[i]);
+    }
+    return ll;
+};

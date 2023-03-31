@@ -5,15 +5,12 @@ export const findBiggestArea = (shapeArr) => {
     let areasData = [];
     let maxAreas = [];
     if (!Array.isArray(shapeArr)) {
-        return "The data is not properly set. This function accept only an array of number as parameter";
+        return null;
     }
 
     for (let i = 0; i < shapeArr.length; i++) {
-        if (typeof shapeArr[i] !== "number") {
-            return "Each height must be given with the number type";
-        }
-        if (shapeArr[i] < 0) {
-            return "Each height must be a positive number";
+        if (typeof shapeArr[i] !== "number" || shapeArr[i] < 0) {
+            return null;
         }
 
         let area = {
@@ -53,10 +50,6 @@ export const findBiggestArea = (shapeArr) => {
     }
 
     const answer = maxAreas.sort((a, b) => b - a)[0];
-    const areasWithoutAnswer = maxAreas.slice(1, maxAreas.length);
-    if (areasWithoutAnswer.findIndex((area) => area === answer) !== -1) {
-        return "We have more than one winner!";
-    }
 
     return answer;
 };

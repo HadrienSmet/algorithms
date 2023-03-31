@@ -3,10 +3,10 @@
 export const findClosestOnGraph = (currPos, enemiesArr) => {
     let enemiesDist = [];
     if (typeof currPos.x !== "number" || typeof currPos.y !== "number") {
-        return "The data about the user's position is not properly set. (x: number; y:number;)";
+        return null;
     }
     if (!Array.isArray(enemiesArr)) {
-        return "The data about the enemies are not properly set: (id: string | number; x: number; y:number;)[]";
+        return null;
     }
 
     for (let i = 0; i < enemiesArr.length; i++) {
@@ -15,19 +15,19 @@ export const findClosestOnGraph = (currPos, enemiesArr) => {
             enemiesArr[i].y === undefined ||
             enemiesArr[i].id === undefined
         ) {
-            return "The data about an enemy is not properly set. (id: string | number; x: number; y:number;)";
+            return null;
         }
         if (
             typeof enemiesArr[i].x !== "number" ||
             typeof enemiesArr[i].y !== "number"
         ) {
-            return "The data about an enemy's position is not properly set. (id: string | number; x: number; y:number;)";
+            return null;
         }
         if (
             typeof enemiesArr[i].id !== "number" &&
             typeof enemiesArr[i].id !== "string"
         ) {
-            return "The data about an enemy's name is not properly set. (id: string | number; x: number; y:number;)";
+            return null;
         }
 
         const diffX = Math.abs(enemiesArr[i].x - currPos.x);

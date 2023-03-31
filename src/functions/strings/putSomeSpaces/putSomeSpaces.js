@@ -5,7 +5,7 @@
 
 export const putSomeSpaces = (firstTxt, scdTxt) => {
     if (typeof firstTxt !== "string" || typeof scdTxt !== "string") {
-        return "Wrong data. Expecting a couple of strings as arguments";
+        return null;
     }
     const splittedText = [...firstTxt];
     const wordsArray = scdTxt.split(" ");

@@ -2,10 +2,7 @@
 
 export const isAnagram = (firstWord, scdWord) => {
     if (typeof firstWord !== "string" || typeof scdWord !== "string") {
-        return "This function only accepts a couple of strings as arguments";
-    }
-    if (firstWord.toLowerCase() === scdWord.toLowerCase()) {
-        return "Dude that's the same words...";
+        return null;
     }
     if (
         firstWord.toLowerCase().split("").sort().join("") ===

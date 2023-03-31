@@ -7,7 +7,7 @@ const convertToFahrenheit = (celsius) => {
 };
 export const findTheHottest = (celsius, fahrenheit) => {
     if (typeof celsius !== "number" || typeof fahrenheit !== "number") {
-        return "The temperatures to compare must be given as number";
+        return null;
     }
     if (
         celsius < -274 ||
@@ -15,7 +15,7 @@ export const findTheHottest = (celsius, fahrenheit) => {
         celsius > ((1.417 * 10) ^ 32) ||
         (fahrenheit + 32) * (5 / 9) > ((1.417 * 10) ^ 32)
     ) {
-        return "Are you from another dimension?";
+        return null;
     }
     if (convertToFahrenheit(celsius) < fahrenheit) {
         return "Go to America, it's hotter";

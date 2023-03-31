@@ -4,12 +4,12 @@ export const findClosestToZero = (temperatureArr) => {
     let currentClosest = undefined;
 
     if (!Array.isArray(temperatureArr)) {
-        return "The data provided are not properly set. (number[])";
+        return null;
     }
 
     for (let i = 0; i < temperatureArr.length; i++) {
         if (typeof temperatureArr[i] !== "number") {
-            return "A temperature does not have the number type";
+            return null;
         }
 
         if (currentClosest === undefined) {

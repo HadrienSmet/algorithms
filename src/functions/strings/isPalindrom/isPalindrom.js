@@ -2,7 +2,7 @@
 
 export const isPalindrom = (firstWord, scdWord) => {
     if (typeof firstWord !== "string" || typeof scdWord !== "string") {
-        return "This function only accepts a couple of string as arguments";
+        return null;
     }
     if (
         firstWord.toLowerCase() ===
