@@ -46,36 +46,19 @@ export class LinkedList {
     }
     // Insert Node at index
     insertAt(data, index) {
-        if (index < 0 || index > this.size) {
-            return;
-        }
-        if (index === 0) {
-            this.insertFirst(data);
-            return;
-        }
+        if (index === 0) return this.insertFirst(data);
 
-        const node = new Node(data);
-        let current, previous;
+        const prevNode = this.getAt(index - 1);
+        if (prevNode === null) return null;
 
-        current = this.head;
-        let count = 0;
-
-        while (count < index) {
-            previous = current;
-            count++;
-            current = current.next;
-        }
-
-        node.next = current;
-        previous.next = node;
-
+        prevNode.next = new Node(data, prevNode.next);
         this.size++;
     }
 
     // Remove Node at index
-    removeAt() {
-        if (index > 0 && index > myLinkedList.size) {
-            return;
+    removeAt(index) {
+        if (index < 0 || index > this.size) {
+            return null;
         }
         let current = this.head;
         let previous;
