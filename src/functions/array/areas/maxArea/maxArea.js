@@ -1,4 +1,5 @@
 //same algorithms than the biggestArea but with a much better time complexity
+
 const maxArea = (height) => {
     let answer = 0;
     let leftIndex = 0;
@@ -15,6 +16,7 @@ const maxArea = (height) => {
     }
     return answer;
 };
+
 // const maxArea = (height) => {
 //     let ans = 0
 //     let i = 0;
